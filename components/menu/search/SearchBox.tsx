@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useMenuSearch } from "@/hooks/menu/useMenuSearch";
 import BottomSheet from "@/components/layout/BottomSheet";
 import MenuDetails from "../details/MenuDetails";
+import Typography from "@/components/Typography";
 
 
 interface SearchBoxProps {
@@ -28,6 +29,7 @@ export default function SearchBox({ onSelect, onFocusChange }: SearchBoxProps) {
 
   return (
     <>
+      {/* BottomSheet for selected item */}
       <BottomSheet open={!!selectedItem} onClose={() => setSelectedItem(null)}>
         {selectedItem && (
           <MenuDetails
@@ -40,6 +42,7 @@ export default function SearchBox({ onSelect, onFocusChange }: SearchBoxProps) {
       </BottomSheet>
 
       <div className="relative w-full max-w-md mx-auto">
+        {/* Search input */}
         <div className="relative z-[1100]">
           <input
             type="text"
@@ -63,6 +66,7 @@ export default function SearchBox({ onSelect, onFocusChange }: SearchBoxProps) {
           )}
         </div>
 
+        {/* Search results */}
         <AnimatePresence>
           {isInputFocused && query.trim() && (
             <motion.ul
@@ -73,7 +77,11 @@ export default function SearchBox({ onSelect, onFocusChange }: SearchBoxProps) {
               className="absolute left-0 right-0 mt-3 w-full bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-[#4B2C5E]/10 max-h-80 overflow-y-auto z-[1101] no-scrollbar"
             >
               {loading ? (
-                <div className="p-8 text-center text-[#4B2C5E]/50 text-sm">Aranıyor...</div>
+                <div className="p-8 text-center">
+                  <Typography variant="bodyMuted">
+                    Aranıyor...
+                  </Typography>
+                </div>
               ) : results.length > 0 ? (
                 results.map((item) => (
                   <li
@@ -83,16 +91,34 @@ export default function SearchBox({ onSelect, onFocusChange }: SearchBoxProps) {
                     className="flex items-center px-4 py-4 cursor-pointer hover:bg-[#FDF8F3] transition-colors border-b border-gray-50 last:border-none"
                   >
                     {item.image_url && (
-                      <img src={item.image_url} className="w-12 h-12 rounded-xl object-cover mr-4 flex-shrink-0 shadow-sm" alt={item.title} />
+                      <img
+                        src={item.image_url}
+                        className="w-12 h-12 rounded-xl object-cover mr-4 flex-shrink-0 shadow-sm"
+                        alt={item.title}
+                      />
                     )}
                     <div className="flex flex-col text-left overflow-hidden">
-                      <span className="text-[#4B2C5E] font-semibold text-sm truncate">{item.title}</span>
-                      <span className="text-xs font-bold text-[#D2993B] mt-0.5">{item.price}₺</span>
+                      <Typography
+                        variant="body"
+                        className="text-[#4B2C5E] font-semibold truncate"
+                      >
+                        {item.title}
+                      </Typography>
+                      <Typography
+                        variant="h2"
+                        className="text-[#D2993B] mt-0.5"
+                      >
+                        {item.price}₺
+                      </Typography>
                     </div>
                   </li>
                 ))
               ) : (
-                <div className="p-8 text-center text-[#4B2C5E]/50 text-sm italic">Sonuç bulunamadı.</div>
+                <div className="p-8 text-center">
+                  <Typography variant="bodyMuted" className="italic">
+                    Sonuç bulunamadı.
+                  </Typography>
+                </div>
               )}
             </motion.ul>
           )}
