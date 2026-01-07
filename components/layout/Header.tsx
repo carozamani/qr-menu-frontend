@@ -14,7 +14,6 @@ export default function Header({ isSearchOpen, toggleSearch }: HeaderProps) {
       className="relative w-full h-35 flex justify-center items-center shadow-lg overflow-visible
       bg-gradient-to-r from-[#4B2C5E] via-[#6B3C7F] to-[#4B2C5E] z-[1200]"
     >
-
       {/* لوگو */}
       <div className="relative w-40 h-40 top-7 drop-shadow-2xl z-10">
         <Image
