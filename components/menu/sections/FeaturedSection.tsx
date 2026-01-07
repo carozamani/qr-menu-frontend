@@ -44,9 +44,7 @@ const FeaturedSection = ({ items }: FeaturedSectionProps) => {
               ref={scrollContainerRef}
               onScroll={handleScroll}
               onMouseDown={handleMouseDown}
-              className={`
-                flex gap-6 
-                scroll-smooth snap-x snap-mandatory
+              className={`flex gap-6 scroll-smooth snap-x snap-mandatory
                 px-4 -mx-4 md:-mx-12 md:px-12 pb-1
                 transition-all duration-500
                 ${isScrolling ? "featured-scroll-active" : "featured-scroll-idle"}
@@ -65,10 +63,16 @@ const FeaturedSection = ({ items }: FeaturedSectionProps) => {
             </div>
           </div>
         ) : (
-          <div className="mx-4 p-10 text-center bg-[#4B2C5E]/5 rounded-[10px]">
+          <div
+            className="mx-4 p-10 text-center"
+            style={{
+              backgroundColor: "var(--bg-surface-3)",
+              borderRadius: "var(--radius-md)",
+            }}
+          >
             <Typography
               variant="bodyMuted"
-              className="text-[#4B2C5E]/60 italic font-medium"
+              className="text-[var(--color-text-muted)] italic font-medium"
             >
               Bu filtreye uygun öne çıkan ürün bulunamadı.
             </Typography>
