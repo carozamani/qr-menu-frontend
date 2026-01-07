@@ -1,7 +1,7 @@
-// BottomSheet.tsx
 "use client";
 
-import { motion, AnimatePresence, PanInfo } from "framer-motion";
+import { useBottomSheet } from "@/hooks/menu/useBottomSheet";
+import { motion, AnimatePresence } from "framer-motion";
 import React, { useRef } from "react";
 
 interface BottomSheetProps {
@@ -10,18 +10,9 @@ interface BottomSheetProps {
   children: React.ReactNode;
 }
 
-export default function BottomSheet({
-  open,
-  onClose,
-  children,
-}: BottomSheetProps) {
+export default function BottomSheet({ open, onClose, children }: BottomSheetProps) {
   const sheetRef = useRef<HTMLDivElement>(null);
-
-  const handleDragEnd = (_: any, info: PanInfo) => {
-    if (info.offset.y > 100 || info.velocity.y > 500) {
-      onClose();
-    }
-  };
+  const { handleDragEnd } = useBottomSheet({ onClose });
 
   return (
     <AnimatePresence>
@@ -29,7 +20,7 @@ export default function BottomSheet({
         <>
           {/* Backdrop */}
           <motion.div
-            className="fixed  inset-0 bg-black/40 z-[3000]"
+            className="fixed inset-0 bg-black/40 z-[3000]"
             onClick={onClose}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -61,9 +52,7 @@ export default function BottomSheet({
               <div className="w-12 h-1.5 bg-[#D2993B] rounded-full" />
             </div>
 
-            <div className="px-6 pb-6">
-              {children}
-            </div>
+            <div className="px-6 pb-6">{children}</div>
           </motion.div>
         </>
       )}
