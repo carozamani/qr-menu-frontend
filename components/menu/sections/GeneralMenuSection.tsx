@@ -7,7 +7,7 @@ import { useGeneralMenu } from "@/hooks/menu/useGeneralMenu";
 import MenuCard from "../cards/MenuCard";
 import BottomSheet from "@/components/layout/BottomSheet";
 import MenuDetails from "../details/MenuDetails";
-
+import Typography from "@/components/Typography";
 
 interface GeneralMenuSectionProps {
   items: MenuItem[];
@@ -15,17 +15,16 @@ interface GeneralMenuSectionProps {
 }
 
 const GeneralMenuSection = ({ items, categoryTitle }: GeneralMenuSectionProps) => {
-  // استفاده از هوک شما
   const { activeItems, selectedItem, openItem, closeItem } = useGeneralMenu(items);
 
   return (
     <>
       <div className="w-full overflow-visible text-left">
-        <div className="px-2 mb-6 overflow-visible">
-          <h2 className="text-xl font-black text-[#4B2C5E] flex items-center gap-3 transition-all duration-300">
-            <span className="w-1.5 h-8 bg-[#D2993B] rounded-[10px] shadow-[0_4px_10px_rgba(210,153,59,0.35)]"/>
+        <div className="px-2 mb-6 overflow-visible flex items-center gap-3">
+          <span className="w-1.5 h-8 bg-[#D2993B] rounded-[10px] shadow-[0_4px_10px_rgba(210,153,59,0.35)]" />
+          <Typography variant="h1">
             {categoryTitle}
-          </h2>
+          </Typography>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-10 gap-x-12 justify-items-center sm:justify-items-start px-4">
@@ -41,9 +40,12 @@ const GeneralMenuSection = ({ items, categoryTitle }: GeneralMenuSectionProps) =
             ))
           ) : (
             <div className="col-span-full py-20 w-full text-center bg-[#4B2C5E]/5 rounded-[10px]">
-              <p className="text-[#4B2C5E]/60 italic font-medium">
+              <Typography
+                variant="bodyMuted"
+                className="text-[#4B2C5E]/60 italic font-medium"
+              >
                 Bu kategoride henüz aktif ürün bulunmuyor.
-              </p>
+              </Typography>
             </div>
           )}
         </div>
