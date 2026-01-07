@@ -2,10 +2,11 @@
 
 import React from "react";
 import { MenuItem } from "@/types/menu";
-import MenuCard from "./MenuCard";
-import MenuDetails from "./MenuDetails";
-import BottomSheet from "../layout/BottomSheet";
+
 import { useGeneralMenu } from "@/hooks/menu/useGeneralMenu";
+import MenuCard from "../cards/MenuCard";
+import BottomSheet from "@/components/layout/BottomSheet";
+import MenuDetails from "../details/MenuDetails";
 
 
 interface GeneralMenuSectionProps {

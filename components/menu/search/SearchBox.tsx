@@ -4,9 +4,10 @@ import React, { useState } from "react";
 import { MenuItem } from "@/types/menu";
 import { LucideSearch, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import MenuDetails from "@/components/menu/MenuDetails";
-import BottomSheet from "../layout/BottomSheet";
+
 import { useMenuSearch } from "@/hooks/menu/useMenuSearch";
+import BottomSheet from "@/components/layout/BottomSheet";
+import MenuDetails from "../details/MenuDetails";
 
 
 interface SearchBoxProps {

@@ -2,9 +2,11 @@
 
 import React from "react";
 import Image from "next/image";
-import BottomSheet from "../layout/BottomSheet";
-import MenuDetails from "./MenuDetails";
+
 import { useDailyMenuCard } from "@/hooks/menu/useDailyMenuCard";
+import BottomSheet from "../layout/BottomSheet";
+import MenuDetails from "./details/MenuDetails";
+
 
 interface DailyMenuCardProps {
   title: string;

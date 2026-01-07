@@ -1,7 +1,7 @@
 "use client";
 
 import { useMenuItems } from "@/hooks/menu/useMenuItems";
-import MenuCard from "./MenuCard";
+import MenuCard from "./cards/MenuCard";
 
 
 export default function MenuList() {

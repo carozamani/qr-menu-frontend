@@ -2,11 +2,12 @@
 
 import React from "react";
 import { MenuItem } from "@/types/menu";
-import MenuCard from "./MenuCard";
-import FilterChips from "./FilterChips";
-import BottomSheet from "../layout/BottomSheet";
-import MenuDetails from "./MenuDetails";
+
 import { useFeaturedSection } from "@/hooks/menu/useFeaturedSection";
+import FilterChips from "../filters/FilterChips";
+import MenuCard from "../cards/MenuCard";
+import BottomSheet from "@/components/layout/BottomSheet";
+import MenuDetails from "../details/MenuDetails";
 
 
 interface FeaturedSectionProps {
