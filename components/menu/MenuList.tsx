@@ -2,7 +2,7 @@
 
 import { useMenuItems } from "@/hooks/menu/useMenuItems";
 import MenuCard from "./cards/MenuCard";
-import Typography from "@/components/ui/Typography";
+import Typography from "@/components/Typography";
 
 export default function MenuList() {
   const { items, loading } = useMenuItems();
@@ -12,7 +12,7 @@ export default function MenuList() {
       <Typography
         variant="body"
         align="center"
-        className="mt-16 text-center text-[#4B2C5E]/70"
+        className="mt-[var(--space-6)] text-center text-[var(--color-text-muted)]"
       >
         در حال بارگذاری...
       </Typography>
@@ -23,9 +23,9 @@ export default function MenuList() {
       <Typography
         variant="bodyMuted"
         align="center"
-        className="mt-16"
+        className="mt-[var(--space-6)] text-[var(--color-text-muted)]"
       >
-        هیچ آیتمی در منو یافت نشد.
+       Menüde öğe yok.
       </Typography>
     );
   }
@@ -34,10 +34,10 @@ export default function MenuList() {
     <div
       className="
         flex flex-row overflow-x-auto
-        gap-10
-        px-8 pt-28 pb-16
+        gap-[var(--space-6)]
+        px-[var(--space-6)] pt-[var(--space-6)] pb-[var(--space-6)]
         scroll-smooth
-        scrollbar-hide
+        no-scrollbar
       "
     >
       {items.map((item) => (
