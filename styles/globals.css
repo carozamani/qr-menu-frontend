@@ -1,22 +1,60 @@
 @import "tailwindcss";
-
 @import "./typography.css";
 @import "./motion.css";
 
+/* ================================
+   🎨 DESIGN SYSTEM — GLOBAL THEME
+   ================================ */
 :root {
-  /* رنگ زرد خردلی دیوار برای پس‌زمینه کل اپ */
-  --primary-bg-color: #D2993B;
-  
-  /* رنگ بنفش تیره تابلو برای المان‌های اصلی */
-  --primary-accent-color: #4B2C5E;
-  
-  /* رنگ متن تیره برای خوانایی روی زرد */
-  --text-main-color: #2D1A39;
+  /* ---------- Text Colors ---------- */
+  --color-text-title: #2D1A39;
+  --color-text-body: #3E2A4F;
+  --color-text-muted: #6B5A7A;
+  --color-text-icon: #4B2C5E;
+
+  /* ---------- Border Colors ---------- */
+  --color-border-light: rgba(75, 44, 94, 0.12);
+  --color-border-default: rgba(75, 44, 94, 0.2);
+
+  /* ---------- Backgrounds (Depth Levels) ---------- */
+  --bg-surface-1: #FFF5E6; /* base / page */
+  --bg-surface-2: #FFFFFF; /* cards */
+  --bg-surface-3: #FFF0D6; /* elevated / overlay */
+
+  /* ---------- Brand / Accent ---------- */
+  --color-primary: #4B2C5E;
+  --color-primary-soft: #6A3F82;
+  --color-secondary: #D2993B;
+
+  /* ---------- Shadows (Elevation) ---------- */
+  --shadow-sm: 0 2px 6px rgba(45, 26, 57, 0.08);
+  --shadow-md: 0 8px 20px rgba(45, 26, 57, 0.12);
+  --shadow-lg: 0 16px 40px rgba(45, 26, 57, 0.18);
+
+  /* ---------- Radius ---------- */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+
+  /* ---------- Spacing System ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* ---------- Typography ---------- */
+  --font-sans: 'Inter', sans-serif;
 }
 
+/* ================================
+   🌍 GLOBAL BASE STYLES
+   ================================ */
 body {
-  background-color: #ffd6a0;
-  color: var(--text-main-color);
+  background-color: var(--bg-surface-1);
+  color: var(--color-text-body);
+  font-family: var(--font-sans);
   margin: 0;
-  font-family: sans-serif; /* یا فونت دلخواه شما */
+  -webkit-font-smoothing: antialiased;
 }
