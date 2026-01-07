@@ -22,7 +22,14 @@ export default function MenuDetails({
     <div className="px-4 pb-12">
       {/* تصویر */}
       <div className="pt-8 flex justify-center">
-        <div className="relative w-80 h-80 rounded-full overflow-hidden bg-gray-100 border-4 border-white shadow-[0_12px_35px_rgba(0,0,0,0.25)]">
+        <div
+          className="relative w-80 h-80 rounded-full overflow-hidden border-4"
+          style={{
+            backgroundColor: "var(--bg-surface-2)",
+            borderColor: "var(--color-border-default)",
+            boxShadow: "var(--shadow-lg)",
+          }}
+        >
           <Image src={imageSrc} alt={title} fill className="object-cover" />
         </div>
       </div>
@@ -30,7 +37,10 @@ export default function MenuDetails({
       {/* محتوا */}
       <div className="mt-8 text-left">
         {/* عنوان */}
-        <Typography variant="display" className="text-[#4B2C5E] mb-4">
+        <Typography
+          variant="display"
+          className="text-[var(--color-primary)] mb-4"
+        >
           {title}
         </Typography>
 
@@ -38,7 +48,7 @@ export default function MenuDetails({
         {description && (
           <Typography
             variant="body"
-            className="text-[#4B2C5E]/70 leading-relaxed mb-8"
+            className="text-[var(--color-primary)]/70 leading-relaxed mb-8"
           >
             {description}
           </Typography>
@@ -46,16 +56,13 @@ export default function MenuDetails({
 
         {/* قیمت */}
         {price != null && (
-          <div className="border-t border-[#4B2C5E]/10 pt-4">
-            <Typography
-              variant="caption"
-              className="text-[#4B2C5E]/50"
-            >
+          <div className="border-t pt-4" style={{ borderColor: "var(--color-border-light)" }}>
+            <Typography variant="caption" className="text-[var(--color-text-muted)]">
               Total Price
             </Typography>
             <Typography
               variant="h2"
-              className="mt-1 text-[#4B2C5E]"
+              className="mt-1 text-[var(--color-primary)]"
             >
               ₺ {price}
             </Typography>
