@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Typography from "@/components/Typography";
 
 interface MenuDetailsProps {
   title: string;
@@ -28,16 +29,36 @@ export default function MenuDetails({
 
       {/* محتوا */}
       <div className="mt-8 text-left">
-        <h2 className="text-3xl font-black text-[#4B2C5E] mb-4">{title}</h2>
+        {/* عنوان */}
+        <Typography variant="display" className="text-[#4B2C5E] mb-4">
+          {title}
+        </Typography>
 
+        {/* توضیحات */}
         {description && (
-          <p className="text-[#4B2C5E]/70 leading-relaxed mb-8">{description}</p>
+          <Typography
+            variant="body"
+            className="text-[#4B2C5E]/70 leading-relaxed mb-8"
+          >
+            {description}
+          </Typography>
         )}
 
+        {/* قیمت */}
         {price != null && (
           <div className="border-t border-[#4B2C5E]/10 pt-4">
-            <span className="text-sm font-bold text-[#4B2C5E]/50">Total Price</span>
-            <div className="mt-1 text-3xl font-black text-[#4B2C5E]">₺ {price}</div>
+            <Typography
+              variant="caption"
+              className="text-[#4B2C5E]/50"
+            >
+              Total Price
+            </Typography>
+            <Typography
+              variant="h2"
+              className="mt-1 text-[#4B2C5E]"
+            >
+              ₺ {price}
+            </Typography>
           </div>
         )}
       </div>
