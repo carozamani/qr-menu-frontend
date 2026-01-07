@@ -27,23 +27,25 @@ const FoodMenu = ({ activeTab, setActiveTab }: FoodMenuProps) => {
             <button
               key={item.id}
               onClick={() => setActiveTab(item.label)}
-              className={`
-                relative flex-1 h-14 flex flex-col items-center justify-center rounded-2xl
+              className={`relative flex-1 h-14 flex flex-col items-center justify-center rounded-[var(--radius-lg)]
                 transition-all duration-500
                 ${isActive
-                  ? "bg-gradient-to-r from-[#6D3B84] via-[#4B2C5E] to-[#8B57A4] shadow-[0_4px_5px_rgba(75,44,94,0.35)] scale-105 z-10"
-                  : "bg-white/10 hover:bg-[#4B2C5E]/10 shadow-[0_0px_8px_rgba(75,44,94,0.15)]"
+                  ? "shadow-[var(--shadow-lg)] scale-105 z-10"
+                  : "bg-[var(--bg-surface-2)] shadow-[var(--shadow-md)] hover:bg-[var(--bg-surface-3)]"
                 }
               `}
+              style={
+                isActive
+                  ? {
+                      background: `linear-gradient(90deg, #6D3B84, #4B2C5E, #8B57A4`,
+                    }
+                  : {}
+              }
             >
               {/* Icon */}
-              <div
-                className={`transition-transform duration-300 ${
-                  isActive ? "scale-110" : ""
-                }`}
-              >
+              <div className={`transition-transform duration-300 ${isActive ? "scale-110" : ""}`}>
                 {React.cloneElement(item.icon as React.ReactElement, {
-                  color: isActive ? "#FFD36E" : "#4B2C5E",
+                  color: isActive ? "#FFD36E" : "var(--color-primary)",
                   opacity: isActive ? 1 : 0.8,
                   strokeWidth: isActive ? 2.5 : 2,
                 })}
@@ -53,7 +55,7 @@ const FoodMenu = ({ activeTab, setActiveTab }: FoodMenuProps) => {
               <Typography
                 variant="label"
                 className={`mt-0.5 text-[9px] transition-colors duration-300 ${
-                  isActive ? "text-white" : "text-[#4B2C5E]/70"
+                  isActive ? "text-white" : "text-[var(--color-text-muted)]"
                 }`}
               >
                 {item.label}
