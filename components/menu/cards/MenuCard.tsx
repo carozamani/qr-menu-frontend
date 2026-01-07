@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { MenuItem } from "@/types/menu";
+import Typography from "@/components/Typography";
+
 
 interface MenuCardProps {
   item: MenuItem;
@@ -75,24 +77,40 @@ export default function MenuCard({
         }`}
       >
         <div className="flex flex-col gap-1.5 overflow-hidden">
-          <h3 className="text-sm md:text-base font-black text-[#4B2C5E] leading-tight line-clamp-1">
+          {/* عنوان */}
+          <Typography
+            variant="h2"
+            className="text-[#4B2C5E] leading-tight line-clamp-1"
+          >
             {item.title}
-          </h3>
+          </Typography>
 
+          {/* توضیح */}
           {isHorizontal && description !== false && (
-            <p className="text-[10px] md:text-xs text-[#4B2C5E]/65 leading-snug font-medium line-clamp-2">
+            <Typography
+              variant="bodyMuted"
+              className="text-[#4B2C5E]/65 leading-snug line-clamp-2"
+            >
               {description ?? item.description}
-            </p>
+            </Typography>
           )}
         </div>
 
         {/* قیمت */}
         <div className="flex w-full items-center border-t border-[#4B2C5E]/10 pt-2">
           <div className="flex items-center gap-1">
-            <span className="text-sm font-bold text-[#D2993B]">₺</span>
-            <p className="font-black text-base text-[#4B2C5E]">
+            <Typography
+              variant="label"
+              className="text-[#D2993B]"
+            >
+              ₺
+            </Typography>
+            <Typography
+              variant="h2"
+              className="text-[#4B2C5E]"
+            >
               {item.price.toLocaleString()}
-            </p>
+            </Typography>
           </div>
         </div>
       </div>
