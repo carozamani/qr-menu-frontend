@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { getMenuItems } from "@/lib/queries/menu";
 import { MenuItem } from "@/types/menu";
 import FoodMenu from "@/components/menu/FoodMenu";
-import FeaturedSection from "@/components/menu/FeaturedSection";
-import GeneralMenuSection from "@/components/menu/GeneralMenuSection";
 import MenuLoader from "@/components/menu/MenuLoader";
 import Header from "@/components/layout/Header";
 import DailyMenuCard from "@/components/menu/DailyMenuCard";
-import SearchBox from "@/components/menu/SearchBox";
 import { motion, AnimatePresence } from "framer-motion";
+import SearchBox from "@/components/menu/search/SearchBox";
+import FeaturedSection from "@/components/menu/sections/FeaturedSection";
+import GeneralMenuSection from "@/components/menu/sections/GeneralMenuSection";
 
 export default function Home() {
   const [items, setItems] = useState<MenuItem[]>([]);
