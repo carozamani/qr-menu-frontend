@@ -1,6 +1,7 @@
 "use client";
 
 import { useFilterChips } from "@/hooks/menu/useFilterChips";
+import Typography from "@/components/Typography";
 
 export const FILTERS = [
   { id: "all", label: "Hepsi" },
@@ -35,15 +36,22 @@ export default function FilterChips({ activeFilter, setActiveFilter }: FilterChi
               key={f.id}
               onClick={(e) => handleClick(f.id, e)}
               className={`
-                flex-shrink-0 whitespace-nowrap px-6 py-3 rounded-2xl text-sm font-bold
+                flex-shrink-0 whitespace-nowrap px-6 py-3 rounded-2xl
                 transition-all duration-300 ease-in-out
                 ${isActive
-                  ? "bg-gradient-to-r from-[#6D3B84] via-[#4B2C5E] to-[#8B57A4] text-white border border-transparent shadow-[0_4px_15px_rgba(75,44,94,0.35)] scale-105"
-                  : "bg-white/10 text-[#6F4C7D] border border-[#4B2C5E]/30 shadow-[0_2px_8px_rgba(75,44,94,0.15)] hover:bg-[#4B2C5E]/15"
+                  ? "bg-gradient-to-r from-[#6D3B84] via-[#4B2C5E] to-[#8B57A4] border border-transparent shadow-[0_4px_15px_rgba(75,44,94,0.35)] scale-105"
+                  : "bg-white/10 border border-[#4B2C5E]/30 shadow-[0_2px_8px_rgba(75,44,94,0.15)] hover:bg-[#4B2C5E]/15"
                 }
               `}
             >
-              {f.label}
+              <Typography
+                variant="label"
+                className={`text-sm font-bold transition-colors duration-300 ${
+                  isActive ? "text-white" : "text-[#6F4C7D]"
+                }`}
+              >
+                {f.label}
+              </Typography>
             </button>
           );
         })}
