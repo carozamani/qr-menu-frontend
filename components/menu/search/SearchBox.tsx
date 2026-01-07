@@ -10,7 +10,6 @@ import BottomSheet from "@/components/layout/BottomSheet";
 import MenuDetails from "../details/MenuDetails";
 import Typography from "@/components/Typography";
 
-
 interface SearchBoxProps {
   onSelect?: (item: MenuItem) => void;
   onFocusChange?: (isFocused: boolean) => void;
@@ -51,17 +50,17 @@ export default function SearchBox({ onSelect, onFocusChange }: SearchBoxProps) {
             onBlur={() => { onFocusChange?.(false); setIsInputFocused(false); }}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Menüde ara..."
-            className="w-full px-4 py-3.5 pl-10 pr-10 rounded-2xl border border-[#4B2C5E]/15 shadow-xl focus:outline-none focus:ring-2 focus:ring-[#D2993B]/50 bg-white text-[#4B2C5E] placeholder:text-[#4B2C5E]/40 transition-all duration-300"
+            className="w-full px-4 py-3.5 pl-10 pr-10 rounded-[var(--radius-lg)] border border-[var(--color-border-light)] shadow-[var(--shadow-md)] focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)] bg-[var(--bg-surface-2)] text-[var(--color-primary)] placeholder:text-[var(--color-primary)]/40 transition-all duration-300"
           />
-          <LucideSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#4B2C5E]/40 w-5 h-5" />
+          <LucideSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[var(--color-primary)]/40 w-5 h-5" />
           {query && (
             <button
               type="button"
               onMouseDown={(e) => e.preventDefault()}
               onClick={() => setQuery("")}
-              className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-100 rounded-full transition-colors"
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 rounded-full transition-colors hover:bg-[var(--bg-surface-3)]"
             >
-              <X className="w-4 h-4 text-[#4B2C5E]/50" />
+              <X className="w-4 h-4 text-[var(--color-primary)]/50" />
             </button>
           )}
         </div>
@@ -74,7 +73,7 @@ export default function SearchBox({ onSelect, onFocusChange }: SearchBoxProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute left-0 right-0 mt-3 w-full bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-[#4B2C5E]/10 max-h-80 overflow-y-auto z-[1101] no-scrollbar"
+              className="absolute left-0 right-0 mt-3 w-full bg-[var(--bg-surface-2)] rounded-[var(--radius-lg)] shadow-[var(--shadow-lg)] border border-[var(--color-border-light)] max-h-80 overflow-y-auto z-[1101] no-scrollbar"
             >
               {loading ? (
                 <div className="p-8 text-center">
@@ -88,7 +87,7 @@ export default function SearchBox({ onSelect, onFocusChange }: SearchBoxProps) {
                     key={item.id}
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={() => handleItemSelect(item)}
-                    className="flex items-center px-4 py-4 cursor-pointer hover:bg-[#FDF8F3] transition-colors border-b border-gray-50 last:border-none"
+                    className="flex items-center px-4 py-4 cursor-pointer hover:bg-[var(--bg-surface-3)] transition-colors border-b border-[var(--color-border-light)] last:border-none"
                   >
                     {item.image_url && (
                       <img
@@ -100,13 +99,13 @@ export default function SearchBox({ onSelect, onFocusChange }: SearchBoxProps) {
                     <div className="flex flex-col text-left overflow-hidden">
                       <Typography
                         variant="body"
-                        className="text-[#4B2C5E] font-semibold truncate"
+                        className="text-[var(--color-primary)] font-semibold truncate"
                       >
                         {item.title}
                       </Typography>
                       <Typography
                         variant="h2"
-                        className="text-[#D2993B] mt-0.5"
+                        className="text-[var(--color-secondary)] mt-0.5"
                       >
                         {item.price}₺
                       </Typography>
