@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import BottomSheet from "../layout/BottomSheet";
 import MenuDetails from "./MenuDetails";
+import { useDailyMenuCard } from "@/hooks/menu/useDailyMenuCard";
 
 interface DailyMenuCardProps {
   title: string;
@@ -22,13 +23,9 @@ export default function DailyMenuCard({
   discountText = "",
   onClick,
 }: DailyMenuCardProps) {
-  const [isSheetOpen, setIsSheetOpen] = useState(false);
-  const imageSrc = image_url && image_url.trim() !== "" ? image_url : "/placeholder.png";
+  const { isSheetOpen, handleClick, handleClose } = useDailyMenuCard(onClick);
 
-  const handleClick = () => {
-    setIsSheetOpen(true);
-    onClick && onClick();
-  };
+  const imageSrc = image_url && image_url.trim() !== "" ? image_url : "/placeholder.png";
 
   return (
     <>
@@ -72,7 +69,7 @@ export default function DailyMenuCard({
       </div>
 
       {/* BottomSheet */}
-      <BottomSheet open={isSheetOpen} onClose={() => setIsSheetOpen(false)}>
+      <BottomSheet open={isSheetOpen} onClose={handleClose}>
         <MenuDetails
           title={title}
           description={description}
