@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import Typography from "../Typography";
+
 
 export default function MenuLoader() {
   return (
@@ -16,13 +20,20 @@ export default function MenuLoader() {
       </div>
 
       {/* متن لودر */}
-      <p className="mt-8 text-lg font-bold text-[#4B2C5E] animate-pulse tracking-wide">
+      <Typography
+        variant="h2"
+        align="center"
+        className="mt-8 text-[#4B2C5E] animate-pulse tracking-wide"
+      >
         Menü yükleniyor...
-      </p>
+      </Typography>
 
       {/* متن پایین ثابت با لینک و قلب */}
       <div className="absolute bottom-6 w-full flex justify-center">
-        <p className="text-sm font-medium text-[#4B2C5E]/60 flex items-center gap-1 select-none">
+        <Typography
+          variant="caption"
+          className="text-[#4B2C5E]/60 flex items-center gap-1 select-none"
+        >
           Kalpten yapıldı
           <span className="text-red-500 animate-pulse">❤</span>
           <Link
@@ -33,7 +44,7 @@ export default function MenuLoader() {
             carozamani
           </Link>
           tarafından
-        </p>
+        </Typography>
       </div>
     </div>
   );
