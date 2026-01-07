@@ -8,7 +8,7 @@ import FilterChips from "../filters/FilterChips";
 import MenuCard from "../cards/MenuCard";
 import BottomSheet from "@/components/layout/BottomSheet";
 import MenuDetails from "../details/MenuDetails";
-
+import Typography from "@/components/Typography";
 
 interface FeaturedSectionProps {
   items: MenuItem[];
@@ -32,14 +32,14 @@ const FeaturedSection = ({ items }: FeaturedSectionProps) => {
 
   return (
     <>
-      <div className="mt-12 w-full  text-left">
+      <div className="mt-12 w-full text-left">
         <FilterChips
           activeFilter={activeFilter}
           setActiveFilter={setActiveFilter}
         />
 
         {filteredItems.length > 0 ? (
-          <div className="relative w-full  group">
+          <div className="relative w-full group">
             <div
               ref={scrollContainerRef}
               onScroll={handleScroll}
@@ -53,7 +53,7 @@ const FeaturedSection = ({ items }: FeaturedSectionProps) => {
               `}
             >
               {filteredItems.map((item) => (
-                <div key={item.id} className="snap-center shrink-0 ">
+                <div key={item.id} className="snap-center shrink-0">
                   <MenuCard
                     item={item}
                     variant="vertical"
@@ -65,8 +65,13 @@ const FeaturedSection = ({ items }: FeaturedSectionProps) => {
             </div>
           </div>
         ) : (
-          <div className="mx-4 p-10 text-center bg-[#4B2C5E]/5 rounded-[10px] text-[#4B2C5E]/60 italic font-medium">
-            Bu filtreye uygun öne çıkan ürün bulunamadı.
+          <div className="mx-4 p-10 text-center bg-[#4B2C5E]/5 rounded-[10px]">
+            <Typography
+              variant="bodyMuted"
+              className="text-[#4B2C5E]/60 italic font-medium"
+            >
+              Bu filtreye uygun öne çıkan ürün bulunamadı.
+            </Typography>
           </div>
         )}
 
