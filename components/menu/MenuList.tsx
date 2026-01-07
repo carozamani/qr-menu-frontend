@@ -2,17 +2,31 @@
 
 import { useMenuItems } from "@/hooks/menu/useMenuItems";
 import MenuCard from "./cards/MenuCard";
-
+import Typography from "@/components/ui/Typography";
 
 export default function MenuList() {
   const { items, loading } = useMenuItems();
 
-  if (loading) return <p className="mt-16 text-center">در حال بارگذاری...</p>;
+  if (loading)
+    return (
+      <Typography
+        variant="body"
+        align="center"
+        className="mt-16 text-center text-[#4B2C5E]/70"
+      >
+        در حال بارگذاری...
+      </Typography>
+    );
+
   if (items.length === 0) {
     return (
-      <p className="mt-16 text-center text-sm font-medium text-[#4B2C5E]/50">
+      <Typography
+        variant="bodyMuted"
+        align="center"
+        className="mt-16"
+      >
         هیچ آیتمی در منو یافت نشد.
-      </p>
+      </Typography>
     );
   }
 
