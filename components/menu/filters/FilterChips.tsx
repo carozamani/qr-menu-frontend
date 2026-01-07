@@ -35,19 +35,18 @@ export default function FilterChips({ activeFilter, setActiveFilter }: FilterChi
             <button
               key={f.id}
               onClick={(e) => handleClick(f.id, e)}
-              className={`
-                flex-shrink-0 whitespace-nowrap px-6 py-3 rounded-2xl
+              className={`flex-shrink-0 whitespace-nowrap px-6 py-3 rounded-[var(--radius-lg)]
                 transition-all duration-300 ease-in-out
                 ${isActive
-                  ? "bg-gradient-to-r from-[#6D3B84] via-[#4B2C5E] to-[#8B57A4] border border-transparent shadow-[0_4px_15px_rgba(75,44,94,0.35)] scale-105"
-                  : "bg-white/10 border border-[#4B2C5E]/30 shadow-[0_2px_8px_rgba(75,44,94,0.15)] hover:bg-[#4B2C5E]/15"
+                  ? "bg-gradient-to-r from-[var(--color-primary-soft)] via-[var(--color-primary)] to-[var(--color-primary-soft)] border border-transparent shadow-[0_4px_15px_rgba(75,44,94,0.35)] scale-105"
+                  : "bg-[var(--bg-surface-2)] border border-[var(--color-border-default)] shadow-[0_2px_8px_rgba(75,44,94,0.15)] hover:bg-[var(--color-primary)]/15"
                 }
               `}
             >
               <Typography
                 variant="label"
                 className={`text-sm font-bold transition-colors duration-300 ${
-                  isActive ? "text-white" : "text-[#6F4C7D]"
+                  isActive ? "text-white" : "text-[var(--color-text-title)]"
                 }`}
               >
                 {f.label}
