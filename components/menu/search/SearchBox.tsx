@@ -50,7 +50,7 @@ export default function SearchBox({ onSelect, onFocusChange }: SearchBoxProps) {
             onBlur={() => { onFocusChange?.(false); setIsInputFocused(false); }}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Menüde ara..."
-            className="w-full px-4 py-3.5 pl-10 pr-10 rounded-[var(--radius-lg)] border border-[var(--color-border-light)] shadow-[var(--shadow-md)] focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)] bg-[var(--bg-surface-2)] text-[var(--color-primary)] placeholder:text-[var(--color-primary)]/40 transition-all duration-300"
+            className="w-full px-4 py-3.5 px-10  rounded-[var(--radius-lg)] border border-[var(--color-border-light)] shadow-[var(--shadow-md)] focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)] bg-[var(--bg-surface-2)] text-[var(--color-primary)] placeholder:text-[var(--color-primary)]/40 transition-all duration-300"
           />
           <LucideSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[var(--color-primary)]/40 w-5 h-5" />
           {query && (

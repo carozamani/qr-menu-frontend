@@ -33,7 +33,7 @@ const FeaturedSection = ({ items }: FeaturedSectionProps) => {
   return (
     <>
       {/* اضافه کردن space-y-8 برای ایجاد فاصله استاندارد بین فیلتر و لیست کارت‌ها */}
-      <div className="w-full text-left space-y-8 py-4">
+      <div className="w-full text-left space-y-8 ">
         
         {/* بخش فیلترها */}
         <div className="filter-container">

@@ -69,7 +69,7 @@ export default function Home() {
           layout
           animate={{
             height: isSearchOpen ? "auto" : 0,
-            marginTop: isSearchOpen ? 8 : 0,
+            marginTop: isSearchOpen ? 20 : 0,
             opacity: isSearchOpen ? 1 : 0,
           }}
           className="relative z-[1900]"
@@ -84,7 +84,7 @@ export default function Home() {
         {/* Content */}
         <motion.div
           layout
-          animate={{ marginTop: isSearchOpen ? 10 : 60 }}
+          animate={{ marginTop: isSearchOpen ? 30 : 30 }}
           className="relative w-full"
         >
           {!loading && dailyMenu && (
@@ -92,7 +92,7 @@ export default function Home() {
           )}
 
           {!loading && (
-            <div className="flex flex-col space-y-12 mt-10 pb-32">
+            <div className="flex flex-col space-y-10 mt-15 ">
               <FeaturedSection items={featuredItems} />
 
               {categories.map((cat, index) => {

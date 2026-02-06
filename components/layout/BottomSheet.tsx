@@ -39,7 +39,7 @@ export default function BottomSheet({ open, onClose, children }: BottomSheetProp
             <div className="flex justify-center py-4 cursor-grab">
               <div className="w-12 h-1.5 bg-[var(--bg-surface-3)] rounded-full" />
             </div>
-            <div className="px-6 pb-10">{children}</div>
+            <div className="px-6 ">{children}</div>
           </motion.div>
         </>
       )}
