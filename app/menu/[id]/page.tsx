@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { getMenuItemById } from "@/lib/queries/menu";
-import MenuDetails from "@/components/menu/MenuDetails";
 import MenuLoader from "@/components/menu/MenuLoader";
+import MenuDetails from "@/components/menu/details/MenuDetails";
 
 
 export default function MenuItemPage() {

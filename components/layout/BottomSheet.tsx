@@ -1,5 +1,4 @@
 "use client";
-
 import { useBottomSheet } from "@/hooks/menu/useBottomSheet";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useRef } from "react";
@@ -18,26 +17,16 @@ export default function BottomSheet({ open, onClose, children }: BottomSheetProp
     <AnimatePresence>
       {open && (
         <>
-          {/* Backdrop */}
           <motion.div
-            className="fixed inset-0 bg-black/40 z-[3000]"
+            className="fixed inset-0 bg-black/40 z-[3000] mx-auto"
             onClick={onClose}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           />
-
-          {/* Sheet */}
           <motion.div
             ref={sheetRef}
-            className="
-              fixed bottom-0 left-0 right-0 z-[5000]
-              bg-[#FDF8F1]/90
-              backdrop-blur-sm
-              rounded-t-[28px]
-              max-h-[90vh]
-              overflow-y-auto
-            "
+            className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[450px] z-[5000]  bg-[var(--bg-surface-3)] backdrop-blur-md rounded-t-[28px] shadow-black"
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
@@ -47,12 +36,10 @@ export default function BottomSheet({ open, onClose, children }: BottomSheetProp
             dragElastic={0.2}
             onDragEnd={handleDragEnd}
           >
-            {/* Handle */}
-            <div className="flex justify-center py-3 cursor-grab">
-              <div className="w-12 h-1.5 bg-[#D2993B] rounded-full" />
+            <div className="flex justify-center py-4 cursor-grab">
+              <div className="w-12 h-1.5 bg-[var(--bg-surface-3)] rounded-full" />
             </div>
-
-            <div className="px-6 pb-6">{children}</div>
+            <div className="px-6 pb-10">{children}</div>
           </motion.div>
         </>
       )}

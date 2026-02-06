@@ -22,7 +22,7 @@ export default function FilterChips({ activeFilter, setActiveFilter }: FilterChi
 
   return (
     <div
-      className="relative touch-pan-x -mx-4 px-4 overflow-visible cursor-grab active:cursor-grabbing"
+      className="relative touch-pan-x -mx-4 px-4 cursor-grab active:cursor-grabbing"
       ref={scrollRef}
       onScroll={handleScroll}
       onMouseDown={handleMouseDown}
@@ -35,11 +35,11 @@ export default function FilterChips({ activeFilter, setActiveFilter }: FilterChi
             <button
               key={f.id}
               onClick={(e) => handleClick(f.id, e)}
-              className={`flex-shrink-0 whitespace-nowrap px-6 py-3 rounded-[var(--radius-lg)]
+              className={`flex-shrink-0 whitespace-nowrap px-6 py-3 rounded-[var(--radius-md)]
                 transition-all duration-300 ease-in-out
                 ${isActive
                   ? "bg-gradient-to-r from-[var(--color-primary-soft)] via-[var(--color-primary)] to-[var(--color-primary-soft)] border border-transparent shadow-[0_4px_15px_rgba(75,44,94,0.35)] scale-105"
-                  : "bg-[var(--bg-surface-2)] border border-[var(--color-border-default)] shadow-[0_2px_8px_rgba(75,44,94,0.15)] hover:bg-[var(--color-primary)]/15"
+                  : "bg-[var(--bg-surface-2)]  shadow-[0_0px_8px_rgba(75,44,94,0.15)]  opacity-[70%]"
                 }
               `}
             >

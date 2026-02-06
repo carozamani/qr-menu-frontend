@@ -87,7 +87,7 @@ export default function SearchBox({ onSelect, onFocusChange }: SearchBoxProps) {
                     key={item.id}
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={() => handleItemSelect(item)}
-                    className="flex items-center px-4 py-4 cursor-pointer hover:bg-[var(--bg-surface-3)] transition-colors border-b border-[var(--color-border-light)] last:border-none"
+                    className="flex items-center px-4 py-4 cursor-pointer transition-colors border-b border-[var(--color-border-light)] last:border-none"
                   >
                     {item.image_url && (
                       <img

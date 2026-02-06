@@ -20,25 +20,27 @@ const GeneralMenuSection = ({ items, categoryTitle }: GeneralMenuSectionProps) =
   return (
     <>
       <div className="w-full overflow-visible text-left">
-        <div className="px-2 mb-6 overflow-visible flex items-center gap-3">
+        {/* عنوان دسته‌بندی */}
+        <div className="mb-6 flex items-center gap-3">
           <span
-            className="w-1.5 h-8 rounded-[var(--radius-md)]"
-            style={{
-              backgroundColor: "var(--color-secondary)",
-              boxShadow: "var(--shadow-md)",
-            }}
+            className="w-1.5 h-8 rounded-lg shadow-md"
+            style={{ backgroundColor: "var(--color-secondary)" }}
           />
-          <Typography variant="h1" className="text-[var(--color-primary)]">
+          <Typography
+            variant="h1"
+            className="text-[var(--color-primary)] text-lg sm:text-xl font-semibold"
+          >
             {categoryTitle}
           </Typography>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-10 gap-x-12 justify-items-center sm:justify-items-start px-4">
+        {/* لیست کارت‌ها به صورت ستونی */}
+        <div className="flex flex-col gap-4 px-2 sm:px-4">
           {activeItems.length > 0 ? (
             activeItems.map((item) => (
               <div
                 key={item.id}
-                className="flex justify-center w-full max-w-[320px] overflow-visible"
+                className="w-full max-w-md mx-auto"
               >
                 <MenuCard
                   item={item}
@@ -48,13 +50,7 @@ const GeneralMenuSection = ({ items, categoryTitle }: GeneralMenuSectionProps) =
               </div>
             ))
           ) : (
-            <div
-              className="col-span-full py-20 w-full text-center"
-              style={{
-                backgroundColor: "var(--bg-surface-3)",
-                borderRadius: "var(--radius-md)",
-              }}
-            >
+            <div className="py-16 px-4 w-full text-center bg-[var(--bg-surface-3)] rounded-lg">
               <Typography
                 variant="bodyMuted"
                 className="text-[var(--color-text-muted)] italic font-medium"
@@ -66,6 +62,7 @@ const GeneralMenuSection = ({ items, categoryTitle }: GeneralMenuSectionProps) =
         </div>
       </div>
 
+      {/* پنل جزئیات محصول */}
       <BottomSheet open={!!selectedItem} onClose={closeItem}>
         {selectedItem && (
           <MenuDetails

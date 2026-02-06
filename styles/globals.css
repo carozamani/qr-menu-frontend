@@ -17,9 +17,9 @@
   --color-border-default: rgba(75, 44, 94, 0.2);
 
   /* ---------- Backgrounds (Depth Levels) ---------- */
-  --bg-surface-1: #FFF5E6; /* base / page */
-  --bg-surface-2: #FFFFFF; /* cards */
-  --bg-surface-3: #FFF0D6; /* elevated / overlay */
+  --bg-surface-1: #fffaf2; /* base / page */
+  --bg-surface-2: #fffdf8; /* cards */
+  --bg-surface-3: #ffffff; /* elevated / overlay */
 
   /* ---------- Brand / Accent ---------- */
   --color-primary: #4B2C5E;
@@ -27,14 +27,14 @@
   --color-secondary: #D2993B;
 
   /* ---------- Shadows (Elevation) ---------- */
-  --shadow-sm: 0 2px 6px rgba(45, 26, 57, 0.08);
-  --shadow-md: 0 8px 20px rgba(45, 26, 57, 0.12);
-  --shadow-lg: 0 16px 40px rgba(45, 26, 57, 0.18);
+  --shadow-sm: 0 0px 6px rgba(45, 26, 57, 0.08);
+  --shadow-md: 0 0px 20px rgba(45, 26, 57, 0.12);
+  --shadow-lg: 0 0px 30px rgba(0, 0, 0, 0.329);
 
   /* ---------- Radius ---------- */
   --radius-sm: 0.5rem;
   --radius-md: 1rem;
-  --radius-lg: 1.5rem;
+  --radius-lg: 2rem;
 
   /* ---------- Spacing System ---------- */
   --space-1: 4px;
@@ -52,7 +52,6 @@
    🌍 GLOBAL BASE STYLES
    ================================ */
 body {
-  background-color: var(--bg-surface-1);
   color: var(--color-text-body);
   font-family: var(--font-sans);
   margin: 0;

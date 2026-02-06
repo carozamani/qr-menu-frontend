@@ -27,23 +27,28 @@ const FoodMenu = ({ activeTab, setActiveTab }: FoodMenuProps) => {
             <button
               key={item.id}
               onClick={() => setActiveTab(item.label)}
-              className={`relative flex-1 h-14 flex flex-col items-center justify-center rounded-[var(--radius-lg)]
-                transition-all duration-500
-                ${isActive
-                  ? "shadow-[var(--shadow-lg)] scale-105 z-10"
-                  : "bg-[var(--bg-surface-2)] shadow-[var(--shadow-md)] hover:bg-[var(--bg-surface-3)]"
-                }
+              className={`
+                relative flex-1 h-14 flex flex-col items-center justify-center 
+                rounded-[var(--radius-md)]
+                shadow-[var(--shadow-md)]
+                transition-transform duration-300
+                ${isActive ? "scale-105 z-10" : ""}
               `}
               style={
                 isActive
                   ? {
-                      background: `linear-gradient(90deg, #6D3B84, #4B2C5E, #8B57A4`,
+                      background:
+                        "linear-gradient(90deg, #6D3B84, #4B2C5E, #8B57A4)",
                     }
                   : {}
               }
             >
               {/* Icon */}
-              <div className={`transition-transform duration-300 ${isActive ? "scale-110" : ""}`}>
+              <div
+                className={`transition-transform duration-300 ${
+                  isActive ? "scale-110" : ""
+                }`}
+              >
                 {React.cloneElement(item.icon as React.ReactElement, {
                   color: isActive ? "#FFD36E" : "var(--color-primary)",
                   opacity: isActive ? 1 : 0.8,
@@ -54,9 +59,10 @@ const FoodMenu = ({ activeTab, setActiveTab }: FoodMenuProps) => {
               {/* Label */}
               <Typography
                 variant="label"
-                className={`mt-0.5 text-[9px] transition-colors duration-300 ${
-                  isActive ? "text-white" : "text-[var(--color-text-muted)]"
-                }`}
+                className={`
+                  mt-0.5 text-[9px] transition-colors duration-300
+                  ${isActive ? "text-white" : "text-[var(--color-text-muted)]"}
+                `}
               >
                 {item.label}
               </Typography>

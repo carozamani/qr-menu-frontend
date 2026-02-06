@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 
 import { useDailyMenuCard } from "@/hooks/menu/useDailyMenuCard";
@@ -38,15 +37,15 @@ export default function DailyMenuCard({
         onClick={handleClick}
         className="
           relative w-full h-[210px] flex items-center justify-between
-          rounded-[20px] px-6 py-4 cursor-pointer
-          transition-all duration-200 shadow-lg
+          rounded-[20px] px-6
+           shadow-lg
           bg-gradient-to-br from-[#FF8C42] to-[#FFB897]
         "
       >
         <div className="flex flex-col gap-2 max-w-[60%]">
           {/* Title */}
           <Typography
-            variant="h2"
+            variant="h1"
             className="text-white line-clamp-2"
           >
             {title}

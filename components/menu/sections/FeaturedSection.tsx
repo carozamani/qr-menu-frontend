@@ -32,11 +32,16 @@ const FeaturedSection = ({ items }: FeaturedSectionProps) => {
 
   return (
     <>
-      <div className="mt-12 w-full text-left">
-        <FilterChips
-          activeFilter={activeFilter}
-          setActiveFilter={setActiveFilter}
-        />
+      {/* اضافه کردن space-y-8 برای ایجاد فاصله استاندارد بین فیلتر و لیست کارت‌ها */}
+      <div className="w-full text-left space-y-8 py-4">
+        
+        {/* بخش فیلترها */}
+        <div className="filter-container">
+          <FilterChips
+            activeFilter={activeFilter}
+            setActiveFilter={setActiveFilter}
+          />
+        </div>
 
         {filteredItems.length > 0 ? (
           <div className="relative w-full group">
@@ -44,8 +49,11 @@ const FeaturedSection = ({ items }: FeaturedSectionProps) => {
               ref={scrollContainerRef}
               onScroll={handleScroll}
               onMouseDown={handleMouseDown}
+              /* اصلاح padding: 
+                 استفاده از py-4 برای اینکه سایه (shadow) کارت‌ها بریده نشود
+              */
               className={`flex gap-6 scroll-smooth snap-x snap-mandatory
-                px-4 -mx-4 md:-mx-12 md:px-12 pb-1
+                px-4 -mx-4 md:-mx-12 md:px-12 py-4
                 transition-all duration-500
                 ${isScrolling ? "featured-scroll-active" : "featured-scroll-idle"}
               `}

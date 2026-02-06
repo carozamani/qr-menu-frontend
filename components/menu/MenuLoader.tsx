@@ -4,37 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import Typography from "../Typography";
 
+
 export default function MenuLoader() {
   return (
-    <div
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
-      style={{
-        backgroundColor: "rgba(255,255,255,0.75)",
-        backdropFilter: "blur(10px)",
-      }}
-    >
+    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white/75 backdrop-blur-md">
       {/* Loader */}
       <div className="relative flex items-center justify-center w-28 h-28">
         {/* حلقه چرخان */}
-        <div
-          className="absolute inset-0 animate-spin rounded-full"
-          style={{
-            borderWidth: "3px",
-            borderColor: "var(--color-primary)/40",
-            borderTopColor: "var(--color-primary)",
-            boxShadow: "var(--shadow-md)",
-          }}
-        />
+        <div className="absolute inset-0 animate-spin rounded-full border-[3px] border-[#4B2C5E]/40 border-t-[#4B2C5E] shadow-[0_6px_14px_rgba(75,44,94,0.18)]" />
 
         {/* لوگو */}
-        <div
-          className="relative w-22 h-22 rounded-full flex items-center justify-center"
-          style={{
-            backgroundColor: "var(--bg-surface-2)",
-            boxShadow: "var(--shadow-lg)",
-            borderRadius: "var(--radius-lg)",
-          }}
-        >
+        <div className="relative w-22 h-22 rounded-full bg-white shadow-[0_0px_18px_rgba(0,0,0,0.3)] flex items-center justify-center">
           <Image src="/Logo.png" alt="Logo" fill className="object-contain" priority />
         </div>
       </div>
@@ -43,8 +23,7 @@ export default function MenuLoader() {
       <Typography
         variant="h2"
         align="center"
-        className="mt-8 animate-pulse tracking-wide"
-        style={{ color: "var(--color-primary)" }}
+        className="mt-8 text-[#4B2C5E] animate-pulse tracking-wide"
       >
         Menü yükleniyor...
       </Typography>
@@ -53,8 +32,7 @@ export default function MenuLoader() {
       <div className="absolute bottom-6 w-full flex justify-center">
         <Typography
           variant="caption"
-          className="flex items-center gap-1 select-none"
-          style={{ color: "var(--color-text-muted)" }}
+          className="text-[#4B2C5E]/60 flex items-center gap-1 select-none"
         >
           Kalpten yapıldı
           <span className="text-red-500 animate-pulse">❤</span>

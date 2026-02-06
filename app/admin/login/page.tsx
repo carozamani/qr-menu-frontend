@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
+import Image from "next/image";
+import Header from "@/components/layout/Header";
+import { Link } from "lucide-react";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
@@ -36,18 +39,19 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364] px-4">
+    <div className="flex items-center justify-center bg-[#fffaf2] ">
       <div
         className="
-          w-full max-w-md p-10 rounded-2xl
-          bg-white/10 backdrop-blur-xl
+          w-full max-w-md rounded-2xl overflow-hidden
+           backdrop-blur-xl
           border border-white/20
           shadow-2xl
+           bg-white/50 backdrop-blur-xl
         "
       >
-        <h1 className="text-3xl font-bold text-center text-white mb-8">
-          Admin Login
-        </h1>
+        <Header/>
+
+        <div className="p-10">
 
         <form onSubmit={handleLogin} className="space-y-6">
           {/* Email */}
@@ -59,8 +63,8 @@ export default function AdminLogin() {
             onChange={e => setEmail(e.target.value)}
             className="
               w-full px-5 py-4 rounded-xl
-              bg-white/10 text-white placeholder:text-white/60
-              border border-white/20
+              text-black placeholder:text-black/60
+              border border-gray/20
               backdrop-blur-md
               focus:outline-none focus:ring-2 focus:ring-blue-400
             "
@@ -75,12 +79,14 @@ export default function AdminLogin() {
             onChange={e => setPassword(e.target.value)}
             className="
               w-full px-5 py-4 rounded-xl
-              bg-white/10 text-white placeholder:text-white/60
-              border border-white/20
+              text-black placeholder:text-black/60
+              border border-gray/20
               backdrop-blur-md
               focus:outline-none focus:ring-2 focus:ring-blue-400
             "
           />
+
+          <p>forget password</p>
 
           {/* Button */}
           <button
@@ -88,8 +94,8 @@ export default function AdminLogin() {
             disabled={loading}
             className={`
               w-full py-4 rounded-xl font-semibold text-white
-              bg-gradient-to-r from-blue-500 to-cyan-400
-              hover:from-blue-600 hover:to-cyan-500
+              bg-gradient-to-r from-[#4B2C5E]/80 to-[#4B2C5E]/100
+              hover:from-[#4B2C5E]/100 hover:to-[#4B2C5E]/80
               transition-all
               ${loading ? "opacity-60 cursor-not-allowed" : ""}
             `}
@@ -103,6 +109,7 @@ export default function AdminLogin() {
             {errorMsg}
           </p>
         )}
+        </div>
       </div>
     </div>
   );

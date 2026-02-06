@@ -24,18 +24,18 @@ const baseStyles = "font-sans leading-relaxed";
 
 const variants: Record<TypographyVariant, string> = {
   display:
-    "text-3xl font-bold leading-tight text-[color:var(--color-text-title)]",
-  h1: "text-2xl font-semibold text-[color:var(--color-text-title)]",
-  h2: "text-lg font-semibold text-[color:var(--color-text-title)]",
+    "text-xl font-bold leading-tight text-[color:var(--color-text-title)]",
+  h1: "text-lg font-semibold text-[color:var(--color-text-title)]",
+  h2: "text-md font-semibold text-[color:var(--color-text-title)]",
 
   body: "text-base text-[color:var(--color-text-body)]",
-  bodyMuted: "text-sm text-[color:var(--color-text-muted)]",
+  bodyMuted: "text-xs text-[color:var(--color-text-muted)]",
 
   caption:
     "text-xs text-[color:var(--color-text-muted)] leading-snug",
 
   label:
-    "text-xs font-medium uppercase tracking-wide text-[color:var(--color-text-icon)]",
+    "text-sm font-medium uppercase tracking-wide text-[color:var(--color-text-icon)]",
 
   button:
     "text-sm font-semibold text-[color:var(--color-text-title)]",

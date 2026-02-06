@@ -11,11 +11,13 @@ interface HeaderProps {
 export default function Header({ isSearchOpen, toggleSearch }: HeaderProps) {
   return (
     <header
-      className="relative w-full h-35 flex justify-center items-center shadow-lg overflow-visible
-      bg-gradient-to-r from-[#4B2C5E] via-[#6B3C7F] to-[#4B2C5E] z-[1200]"
+        className="h-45"
     >
-      {/* لوگو */}
-      <div className="relative w-40 h-40 top-7 drop-shadow-2xl z-10">
+     <div  className="relative w-full h-35 flex justify-center items-center shadow-lg overflow-visible
+      bg-gradient-to-r from-[#4B2C5E] via-[#6B3C7F] to-[#4B2C5E] z-[1200] rounded-b-[var(--radius-lg)]">
+
+       {/* لوگو */}
+      <div className="relative w-40 h-40 top-7 drop-shadow-lg z-10">
         <Image
           src="/Logo.png"
           alt="Restaurant Logo"
@@ -37,6 +39,8 @@ export default function Header({ isSearchOpen, toggleSearch }: HeaderProps) {
           <Search size={24} className="group-active:scale-90 transition-transform" />
         )}
       </button>
+
+     </div>
     </header>
   );
 }
